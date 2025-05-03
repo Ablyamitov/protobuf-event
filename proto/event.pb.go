@@ -876,7 +876,7 @@ func (x *CategoriesResponse) GetCategories() []string {
 
 type ChatList struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Chats         []string               `protobuf:"bytes,1,rep,name=chats,proto3" json:"chats,omitempty"`
+	Chats         []*Chat                `protobuf:"bytes,1,rep,name=chats,proto3" json:"chats,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -911,11 +911,63 @@ func (*ChatList) Descriptor() ([]byte, []int) {
 	return file_event_proto_rawDescGZIP(), []int{17}
 }
 
-func (x *ChatList) GetChats() []string {
+func (x *ChatList) GetChats() []*Chat {
 	if x != nil {
 		return x.Chats
 	}
 	return nil
+}
+
+type Chat struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Category      string                 `protobuf:"bytes,2,opt,name=category,proto3" json:"category,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Chat) Reset() {
+	*x = Chat{}
+	mi := &file_event_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Chat) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Chat) ProtoMessage() {}
+
+func (x *Chat) ProtoReflect() protoreflect.Message {
+	mi := &file_event_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Chat.ProtoReflect.Descriptor instead.
+func (*Chat) Descriptor() ([]byte, []int) {
+	return file_event_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *Chat) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Chat) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
 }
 
 var File_event_proto protoreflect.FileDescriptor
@@ -981,9 +1033,12 @@ const file_event_proto_rawDesc = "" +
 	"\x12CategoriesResponse\x12\x1e\n" +
 	"\n" +
 	"categories\x18\x01 \x03(\tR\n" +
-	"categories\" \n" +
-	"\bChatList\x12\x14\n" +
-	"\x05chats\x18\x01 \x03(\tR\x05chats2\xac\x05\n" +
+	"categories\"-\n" +
+	"\bChatList\x12!\n" +
+	"\x05chats\x18\x01 \x03(\v2\v.proto.ChatR\x05chats\"6\n" +
+	"\x04Chat\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1a\n" +
+	"\bcategory\x18\x02 \x01(\tR\bcategory2\xac\x05\n" +
 	"\fEventService\x12.\n" +
 	"\aAddChat\x12\x15.proto.AddChatRequest\x1a\f.proto.Empty\x12:\n" +
 	"\n" +
@@ -1009,7 +1064,7 @@ func file_event_proto_rawDescGZIP() []byte {
 	return file_event_proto_rawDescData
 }
 
-var file_event_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
+var file_event_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
 var file_event_proto_goTypes = []any{
 	(*AddChatRequest)(nil),          // 0: proto.AddChatRequest
 	(*UserChatIDRequest)(nil),       // 1: proto.UserChatIDRequest
@@ -1029,6 +1084,7 @@ var file_event_proto_goTypes = []any{
 	(*EventList)(nil),               // 15: proto.EventList
 	(*CategoriesResponse)(nil),      // 16: proto.CategoriesResponse
 	(*ChatList)(nil),                // 17: proto.ChatList
+	(*Chat)(nil),                    // 18: proto.Chat
 }
 var file_event_proto_depIdxs = []int32{
 	11, // 0: proto.CatalogList.catalogs:type_name -> proto.Catalog
@@ -1038,31 +1094,32 @@ var file_event_proto_depIdxs = []int32{
 	13, // 4: proto.Channel.events:type_name -> proto.Event
 	13, // 5: proto.EventCategoryList.events:type_name -> proto.Event
 	13, // 6: proto.EventList.events:type_name -> proto.Event
-	0,  // 7: proto.EventService.AddChat:input_type -> proto.AddChatRequest
-	1,  // 8: proto.EventService.GetCatalog:input_type -> proto.UserChatIDRequest
-	2,  // 9: proto.EventService.GetFilteredCatalog:input_type -> proto.FilteredCatalogRequest
-	1,  // 10: proto.EventService.GetModeCatalog:input_type -> proto.UserChatIDRequest
-	3,  // 11: proto.EventService.GetEventsByCategory:input_type -> proto.CategoryRequest
-	4,  // 12: proto.EventService.GetFilteredEventsByCategory:input_type -> proto.FilteredCategoryRequest
-	5,  // 13: proto.EventService.GetChatEvents:input_type -> proto.ChatRequest
-	6,  // 14: proto.EventService.GetFilteredChatEvents:input_type -> proto.FilteredChatRequest
-	1,  // 15: proto.EventService.GetCategories:input_type -> proto.UserChatIDRequest
-	1,  // 16: proto.EventService.GetChats:input_type -> proto.UserChatIDRequest
-	7,  // 17: proto.EventService.AddChat:output_type -> proto.Empty
-	8,  // 18: proto.EventService.GetCatalog:output_type -> proto.CatalogList
-	9,  // 19: proto.EventService.GetFilteredCatalog:output_type -> proto.FilteredCatalogList
-	10, // 20: proto.EventService.GetModeCatalog:output_type -> proto.ModeCatalogList
-	14, // 21: proto.EventService.GetEventsByCategory:output_type -> proto.EventCategoryList
-	14, // 22: proto.EventService.GetFilteredEventsByCategory:output_type -> proto.EventCategoryList
-	15, // 23: proto.EventService.GetChatEvents:output_type -> proto.EventList
-	15, // 24: proto.EventService.GetFilteredChatEvents:output_type -> proto.EventList
-	16, // 25: proto.EventService.GetCategories:output_type -> proto.CategoriesResponse
-	17, // 26: proto.EventService.GetChats:output_type -> proto.ChatList
-	17, // [17:27] is the sub-list for method output_type
-	7,  // [7:17] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	18, // 7: proto.ChatList.chats:type_name -> proto.Chat
+	0,  // 8: proto.EventService.AddChat:input_type -> proto.AddChatRequest
+	1,  // 9: proto.EventService.GetCatalog:input_type -> proto.UserChatIDRequest
+	2,  // 10: proto.EventService.GetFilteredCatalog:input_type -> proto.FilteredCatalogRequest
+	1,  // 11: proto.EventService.GetModeCatalog:input_type -> proto.UserChatIDRequest
+	3,  // 12: proto.EventService.GetEventsByCategory:input_type -> proto.CategoryRequest
+	4,  // 13: proto.EventService.GetFilteredEventsByCategory:input_type -> proto.FilteredCategoryRequest
+	5,  // 14: proto.EventService.GetChatEvents:input_type -> proto.ChatRequest
+	6,  // 15: proto.EventService.GetFilteredChatEvents:input_type -> proto.FilteredChatRequest
+	1,  // 16: proto.EventService.GetCategories:input_type -> proto.UserChatIDRequest
+	1,  // 17: proto.EventService.GetChats:input_type -> proto.UserChatIDRequest
+	7,  // 18: proto.EventService.AddChat:output_type -> proto.Empty
+	8,  // 19: proto.EventService.GetCatalog:output_type -> proto.CatalogList
+	9,  // 20: proto.EventService.GetFilteredCatalog:output_type -> proto.FilteredCatalogList
+	10, // 21: proto.EventService.GetModeCatalog:output_type -> proto.ModeCatalogList
+	14, // 22: proto.EventService.GetEventsByCategory:output_type -> proto.EventCategoryList
+	14, // 23: proto.EventService.GetFilteredEventsByCategory:output_type -> proto.EventCategoryList
+	15, // 24: proto.EventService.GetChatEvents:output_type -> proto.EventList
+	15, // 25: proto.EventService.GetFilteredChatEvents:output_type -> proto.EventList
+	16, // 26: proto.EventService.GetCategories:output_type -> proto.CategoriesResponse
+	17, // 27: proto.EventService.GetChats:output_type -> proto.ChatList
+	18, // [18:28] is the sub-list for method output_type
+	8,  // [8:18] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_event_proto_init() }
@@ -1076,7 +1133,7 @@ func file_event_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_event_proto_rawDesc), len(file_event_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   18,
+			NumMessages:   19,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -669,10 +669,9 @@ func (x *Channel) GetEvents() []*Event {
 type Event struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
-	Date          string                 `protobuf:"bytes,2,opt,name=date,proto3" json:"date,omitempty"`
-	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	Category      string                 `protobuf:"bytes,4,opt,name=category,proto3" json:"category,omitempty"`
-	Url           string                 `protobuf:"bytes,5,opt,name=url,proto3" json:"url,omitempty"`
+	StartTime     string                 `protobuf:"bytes,2,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	Url           string                 `protobuf:"bytes,3,opt,name=url,proto3" json:"url,omitempty"`
+	MessageLink   string                 `protobuf:"bytes,4,opt,name=message_link,json=messageLink,proto3" json:"message_link,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -714,23 +713,9 @@ func (x *Event) GetTitle() string {
 	return ""
 }
 
-func (x *Event) GetDate() string {
+func (x *Event) GetStartTime() string {
 	if x != nil {
-		return x.Date
-	}
-	return ""
-}
-
-func (x *Event) GetDescription() string {
-	if x != nil {
-		return x.Description
-	}
-	return ""
-}
-
-func (x *Event) GetCategory() string {
-	if x != nil {
-		return x.Category
+		return x.StartTime
 	}
 	return ""
 }
@@ -738,6 +723,13 @@ func (x *Event) GetCategory() string {
 func (x *Event) GetUrl() string {
 	if x != nil {
 		return x.Url
+	}
+	return ""
+}
+
+func (x *Event) GetMessageLink() string {
+	if x != nil {
+		return x.MessageLink
 	}
 	return ""
 }
@@ -1019,13 +1011,13 @@ const file_event_proto_rawDesc = "" +
 	"\bchannels\x18\x02 \x03(\v2\x0e.proto.ChannelR\bchannels\"K\n" +
 	"\aChannel\x12\x1a\n" +
 	"\busername\x18\x01 \x01(\tR\busername\x12$\n" +
-	"\x06events\x18\x02 \x03(\v2\f.proto.EventR\x06events\"\x81\x01\n" +
+	"\x06events\x18\x02 \x03(\v2\f.proto.EventR\x06events\"q\n" +
 	"\x05Event\x12\x14\n" +
-	"\x05title\x18\x01 \x01(\tR\x05title\x12\x12\n" +
-	"\x04date\x18\x02 \x01(\tR\x04date\x12 \n" +
-	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x1a\n" +
-	"\bcategory\x18\x04 \x01(\tR\bcategory\x12\x10\n" +
-	"\x03url\x18\x05 \x01(\tR\x03url\"9\n" +
+	"\x05title\x18\x01 \x01(\tR\x05title\x12\x1d\n" +
+	"\n" +
+	"start_time\x18\x02 \x01(\tR\tstartTime\x12\x10\n" +
+	"\x03url\x18\x03 \x01(\tR\x03url\x12!\n" +
+	"\fmessage_link\x18\x04 \x01(\tR\vmessageLink\"9\n" +
 	"\x11EventCategoryList\x12$\n" +
 	"\x06events\x18\x01 \x03(\v2\f.proto.EventR\x06events\"1\n" +
 	"\tEventList\x12$\n" +

@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "event/proto;proto";
+
+service EventService {
+  rpc AddChat (AddChatRequest) returns (Empty);
+  rpc GetCatalog (UserChatIDRequest) returns (CatalogList);
+  rpc GetFilteredCatalog (FilteredCatalogRequest) returns (FilteredCatalogList);
+  rpc GetModeCatalog (UserChatIDRequest) returns (ModeCatalogList);
+  rpc GetEventsByCategory (CategoryRequest) returns (EventCategoryList);
+  rpc GetFilteredEventsByCategory (FilteredCategoryRequest) returns (EventCategoryList);
+  rpc GetChatEvents (ChatRequest) returns (EventList);
+  rpc GetFilteredChatEvents (FilteredChatRequest) returns (EventList);
+  rpc GetCategories (UserChatIDRequest) returns (CategoriesResponse);
+  rpc GetChats (UserChatIDRequest) returns (ChatList);
+}
+
+// ======= Запросы =======
+message AddChatRequest {
+  string username = 1;
+  int32 user_chat_id = 2;
+}
+
+message UserChatIDRequest {
+  int32 user_chat_id = 1;
+}
+
+message FilteredCatalogRequest {
+  int32 user_chat_id = 1;
+  string time_filter = 2;
+}
+
+message CategoryRequest {
+  int32 user_chat_id = 1;
+  string category = 2;
+}
+
+message FilteredCategoryRequest {
+  int32 user_chat_id = 1;
+  string category = 2;
+  string time_filter = 3;
+}
+
+message ChatRequest {
+  string chat_username = 1;
+  int32 user_chat_id = 2;
+}
+
+message FilteredChatRequest {
+  string chat_username = 1;
+  int32 user_chat_id = 2;
+  string time_filter = 3;
+}
+
+// ======= Ответы =======
+
+message Empty {}
+
+message CatalogList {
+  repeated Catalog catalogs = 1;
+}
+
+message FilteredCatalogList {
+  repeated Catalog catalogs = 1;
+}
+
+message ModeCatalogList {
+  repeated Catalog catalogs = 1;
+}
+
+message Catalog {
+  string category = 1;
+  repeated Channel channels = 2;
+}
+
+message Channel {
+  string username = 1;
+  repeated Event events = 2;
+}
+
+message Event {
+  string title = 1;
+  string start_time = 2;
+  string url = 3;
+  string message_link = 4;
+}
+
+message EventCategoryList {
+  repeated Event events = 1;
+}
+
+message EventList {
+  repeated Event events = 1;
+}
+
+message CategoriesResponse {
+  repeated string categories = 1;
+}
+
+message ChatList {
+  repeated Chat chats = 1;
+}
+
+message Chat {
+  string name = 1;
+  string category = 2;
+}

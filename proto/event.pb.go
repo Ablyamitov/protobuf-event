@@ -614,6 +614,126 @@ func (x *Catalog) GetChannels() []*Channel {
 	return nil
 }
 
+type FilteredCatalog struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Category      string                 `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	Channels      []*Channel             `protobuf:"bytes,2,rep,name=channels,proto3" json:"channels,omitempty"`
+	Events        []*Event               `protobuf:"bytes,3,rep,name=events,proto3" json:"events,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FilteredCatalog) Reset() {
+	*x = FilteredCatalog{}
+	mi := &file_event_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FilteredCatalog) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FilteredCatalog) ProtoMessage() {}
+
+func (x *FilteredCatalog) ProtoReflect() protoreflect.Message {
+	mi := &file_event_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FilteredCatalog.ProtoReflect.Descriptor instead.
+func (*FilteredCatalog) Descriptor() ([]byte, []int) {
+	return file_event_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *FilteredCatalog) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *FilteredCatalog) GetChannels() []*Channel {
+	if x != nil {
+		return x.Channels
+	}
+	return nil
+}
+
+func (x *FilteredCatalog) GetEvents() []*Event {
+	if x != nil {
+		return x.Events
+	}
+	return nil
+}
+
+type ModeCatalog struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Category      string                 `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	Channels      []*Channel             `protobuf:"bytes,2,rep,name=channels,proto3" json:"channels,omitempty"`
+	Events        []*Event               `protobuf:"bytes,3,rep,name=events,proto3" json:"events,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ModeCatalog) Reset() {
+	*x = ModeCatalog{}
+	mi := &file_event_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ModeCatalog) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ModeCatalog) ProtoMessage() {}
+
+func (x *ModeCatalog) ProtoReflect() protoreflect.Message {
+	mi := &file_event_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ModeCatalog.ProtoReflect.Descriptor instead.
+func (*ModeCatalog) Descriptor() ([]byte, []int) {
+	return file_event_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ModeCatalog) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *ModeCatalog) GetChannels() []*Channel {
+	if x != nil {
+		return x.Channels
+	}
+	return nil
+}
+
+func (x *ModeCatalog) GetEvents() []*Event {
+	if x != nil {
+		return x.Events
+	}
+	return nil
+}
+
 type Channel struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Username      string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
@@ -624,7 +744,7 @@ type Channel struct {
 
 func (x *Channel) Reset() {
 	*x = Channel{}
-	mi := &file_event_proto_msgTypes[12]
+	mi := &file_event_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -636,7 +756,7 @@ func (x *Channel) String() string {
 func (*Channel) ProtoMessage() {}
 
 func (x *Channel) ProtoReflect() protoreflect.Message {
-	mi := &file_event_proto_msgTypes[12]
+	mi := &file_event_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -649,7 +769,7 @@ func (x *Channel) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Channel.ProtoReflect.Descriptor instead.
 func (*Channel) Descriptor() ([]byte, []int) {
-	return file_event_proto_rawDescGZIP(), []int{12}
+	return file_event_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *Channel) GetUsername() string {
@@ -678,7 +798,7 @@ type Event struct {
 
 func (x *Event) Reset() {
 	*x = Event{}
-	mi := &file_event_proto_msgTypes[13]
+	mi := &file_event_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -690,7 +810,7 @@ func (x *Event) String() string {
 func (*Event) ProtoMessage() {}
 
 func (x *Event) ProtoReflect() protoreflect.Message {
-	mi := &file_event_proto_msgTypes[13]
+	mi := &file_event_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -703,7 +823,7 @@ func (x *Event) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Event.ProtoReflect.Descriptor instead.
 func (*Event) Descriptor() ([]byte, []int) {
-	return file_event_proto_rawDescGZIP(), []int{13}
+	return file_event_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *Event) GetTitle() string {
@@ -743,7 +863,7 @@ type EventCategoryList struct {
 
 func (x *EventCategoryList) Reset() {
 	*x = EventCategoryList{}
-	mi := &file_event_proto_msgTypes[14]
+	mi := &file_event_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -755,7 +875,7 @@ func (x *EventCategoryList) String() string {
 func (*EventCategoryList) ProtoMessage() {}
 
 func (x *EventCategoryList) ProtoReflect() protoreflect.Message {
-	mi := &file_event_proto_msgTypes[14]
+	mi := &file_event_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -768,7 +888,7 @@ func (x *EventCategoryList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventCategoryList.ProtoReflect.Descriptor instead.
 func (*EventCategoryList) Descriptor() ([]byte, []int) {
-	return file_event_proto_rawDescGZIP(), []int{14}
+	return file_event_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *EventCategoryList) GetEvents() []*Event {
@@ -787,7 +907,7 @@ type EventList struct {
 
 func (x *EventList) Reset() {
 	*x = EventList{}
-	mi := &file_event_proto_msgTypes[15]
+	mi := &file_event_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -799,7 +919,7 @@ func (x *EventList) String() string {
 func (*EventList) ProtoMessage() {}
 
 func (x *EventList) ProtoReflect() protoreflect.Message {
-	mi := &file_event_proto_msgTypes[15]
+	mi := &file_event_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -812,7 +932,7 @@ func (x *EventList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventList.ProtoReflect.Descriptor instead.
 func (*EventList) Descriptor() ([]byte, []int) {
-	return file_event_proto_rawDescGZIP(), []int{15}
+	return file_event_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *EventList) GetEvents() []*Event {
@@ -831,7 +951,7 @@ type CategoriesResponse struct {
 
 func (x *CategoriesResponse) Reset() {
 	*x = CategoriesResponse{}
-	mi := &file_event_proto_msgTypes[16]
+	mi := &file_event_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -843,7 +963,7 @@ func (x *CategoriesResponse) String() string {
 func (*CategoriesResponse) ProtoMessage() {}
 
 func (x *CategoriesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_event_proto_msgTypes[16]
+	mi := &file_event_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -856,7 +976,7 @@ func (x *CategoriesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CategoriesResponse.ProtoReflect.Descriptor instead.
 func (*CategoriesResponse) Descriptor() ([]byte, []int) {
-	return file_event_proto_rawDescGZIP(), []int{16}
+	return file_event_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *CategoriesResponse) GetCategories() []string {
@@ -875,7 +995,7 @@ type ChatList struct {
 
 func (x *ChatList) Reset() {
 	*x = ChatList{}
-	mi := &file_event_proto_msgTypes[17]
+	mi := &file_event_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -887,7 +1007,7 @@ func (x *ChatList) String() string {
 func (*ChatList) ProtoMessage() {}
 
 func (x *ChatList) ProtoReflect() protoreflect.Message {
-	mi := &file_event_proto_msgTypes[17]
+	mi := &file_event_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -900,7 +1020,7 @@ func (x *ChatList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChatList.ProtoReflect.Descriptor instead.
 func (*ChatList) Descriptor() ([]byte, []int) {
-	return file_event_proto_rawDescGZIP(), []int{17}
+	return file_event_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *ChatList) GetChats() []*Chat {
@@ -920,7 +1040,7 @@ type Chat struct {
 
 func (x *Chat) Reset() {
 	*x = Chat{}
-	mi := &file_event_proto_msgTypes[18]
+	mi := &file_event_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -932,7 +1052,7 @@ func (x *Chat) String() string {
 func (*Chat) ProtoMessage() {}
 
 func (x *Chat) ProtoReflect() protoreflect.Message {
-	mi := &file_event_proto_msgTypes[18]
+	mi := &file_event_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -945,7 +1065,7 @@ func (x *Chat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Chat.ProtoReflect.Descriptor instead.
 func (*Chat) Descriptor() ([]byte, []int) {
-	return file_event_proto_rawDescGZIP(), []int{18}
+	return file_event_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *Chat) GetName() string {
@@ -1008,7 +1128,15 @@ const file_event_proto_rawDesc = "" +
 	"\bcatalogs\x18\x01 \x03(\v2\x0e.proto.CatalogR\bcatalogs\"Q\n" +
 	"\aCatalog\x12\x1a\n" +
 	"\bcategory\x18\x01 \x01(\tR\bcategory\x12*\n" +
-	"\bchannels\x18\x02 \x03(\v2\x0e.proto.ChannelR\bchannels\"K\n" +
+	"\bchannels\x18\x02 \x03(\v2\x0e.proto.ChannelR\bchannels\"\x7f\n" +
+	"\x0fFilteredCatalog\x12\x1a\n" +
+	"\bcategory\x18\x01 \x01(\tR\bcategory\x12*\n" +
+	"\bchannels\x18\x02 \x03(\v2\x0e.proto.ChannelR\bchannels\x12$\n" +
+	"\x06events\x18\x03 \x03(\v2\f.proto.EventR\x06events\"{\n" +
+	"\vModeCatalog\x12\x1a\n" +
+	"\bcategory\x18\x01 \x01(\tR\bcategory\x12*\n" +
+	"\bchannels\x18\x02 \x03(\v2\x0e.proto.ChannelR\bchannels\x12$\n" +
+	"\x06events\x18\x03 \x03(\v2\f.proto.EventR\x06events\"K\n" +
 	"\aChannel\x12\x1a\n" +
 	"\busername\x18\x01 \x01(\tR\busername\x12$\n" +
 	"\x06events\x18\x02 \x03(\v2\f.proto.EventR\x06events\"q\n" +
@@ -1056,7 +1184,7 @@ func file_event_proto_rawDescGZIP() []byte {
 	return file_event_proto_rawDescData
 }
 
-var file_event_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
+var file_event_proto_msgTypes = make([]protoimpl.MessageInfo, 21)
 var file_event_proto_goTypes = []any{
 	(*AddChatRequest)(nil),          // 0: proto.AddChatRequest
 	(*UserChatIDRequest)(nil),       // 1: proto.UserChatIDRequest
@@ -1070,48 +1198,54 @@ var file_event_proto_goTypes = []any{
 	(*FilteredCatalogList)(nil),     // 9: proto.FilteredCatalogList
 	(*ModeCatalogList)(nil),         // 10: proto.ModeCatalogList
 	(*Catalog)(nil),                 // 11: proto.Catalog
-	(*Channel)(nil),                 // 12: proto.Channel
-	(*Event)(nil),                   // 13: proto.Event
-	(*EventCategoryList)(nil),       // 14: proto.EventCategoryList
-	(*EventList)(nil),               // 15: proto.EventList
-	(*CategoriesResponse)(nil),      // 16: proto.CategoriesResponse
-	(*ChatList)(nil),                // 17: proto.ChatList
-	(*Chat)(nil),                    // 18: proto.Chat
+	(*FilteredCatalog)(nil),         // 12: proto.FilteredCatalog
+	(*ModeCatalog)(nil),             // 13: proto.ModeCatalog
+	(*Channel)(nil),                 // 14: proto.Channel
+	(*Event)(nil),                   // 15: proto.Event
+	(*EventCategoryList)(nil),       // 16: proto.EventCategoryList
+	(*EventList)(nil),               // 17: proto.EventList
+	(*CategoriesResponse)(nil),      // 18: proto.CategoriesResponse
+	(*ChatList)(nil),                // 19: proto.ChatList
+	(*Chat)(nil),                    // 20: proto.Chat
 }
 var file_event_proto_depIdxs = []int32{
 	11, // 0: proto.CatalogList.catalogs:type_name -> proto.Catalog
 	11, // 1: proto.FilteredCatalogList.catalogs:type_name -> proto.Catalog
 	11, // 2: proto.ModeCatalogList.catalogs:type_name -> proto.Catalog
-	12, // 3: proto.Catalog.channels:type_name -> proto.Channel
-	13, // 4: proto.Channel.events:type_name -> proto.Event
-	13, // 5: proto.EventCategoryList.events:type_name -> proto.Event
-	13, // 6: proto.EventList.events:type_name -> proto.Event
-	18, // 7: proto.ChatList.chats:type_name -> proto.Chat
-	0,  // 8: proto.EventService.AddChat:input_type -> proto.AddChatRequest
-	1,  // 9: proto.EventService.GetCatalog:input_type -> proto.UserChatIDRequest
-	2,  // 10: proto.EventService.GetFilteredCatalog:input_type -> proto.FilteredCatalogRequest
-	1,  // 11: proto.EventService.GetModeCatalog:input_type -> proto.UserChatIDRequest
-	3,  // 12: proto.EventService.GetEventsByCategory:input_type -> proto.CategoryRequest
-	4,  // 13: proto.EventService.GetFilteredEventsByCategory:input_type -> proto.FilteredCategoryRequest
-	5,  // 14: proto.EventService.GetChatEvents:input_type -> proto.ChatRequest
-	6,  // 15: proto.EventService.GetFilteredChatEvents:input_type -> proto.FilteredChatRequest
-	1,  // 16: proto.EventService.GetCategories:input_type -> proto.UserChatIDRequest
-	1,  // 17: proto.EventService.GetChats:input_type -> proto.UserChatIDRequest
-	7,  // 18: proto.EventService.AddChat:output_type -> proto.Empty
-	8,  // 19: proto.EventService.GetCatalog:output_type -> proto.CatalogList
-	9,  // 20: proto.EventService.GetFilteredCatalog:output_type -> proto.FilteredCatalogList
-	10, // 21: proto.EventService.GetModeCatalog:output_type -> proto.ModeCatalogList
-	14, // 22: proto.EventService.GetEventsByCategory:output_type -> proto.EventCategoryList
-	14, // 23: proto.EventService.GetFilteredEventsByCategory:output_type -> proto.EventCategoryList
-	15, // 24: proto.EventService.GetChatEvents:output_type -> proto.EventList
-	15, // 25: proto.EventService.GetFilteredChatEvents:output_type -> proto.EventList
-	16, // 26: proto.EventService.GetCategories:output_type -> proto.CategoriesResponse
-	17, // 27: proto.EventService.GetChats:output_type -> proto.ChatList
-	18, // [18:28] is the sub-list for method output_type
-	8,  // [8:18] is the sub-list for method input_type
-	8,  // [8:8] is the sub-list for extension type_name
-	8,  // [8:8] is the sub-list for extension extendee
-	0,  // [0:8] is the sub-list for field type_name
+	14, // 3: proto.Catalog.channels:type_name -> proto.Channel
+	14, // 4: proto.FilteredCatalog.channels:type_name -> proto.Channel
+	15, // 5: proto.FilteredCatalog.events:type_name -> proto.Event
+	14, // 6: proto.ModeCatalog.channels:type_name -> proto.Channel
+	15, // 7: proto.ModeCatalog.events:type_name -> proto.Event
+	15, // 8: proto.Channel.events:type_name -> proto.Event
+	15, // 9: proto.EventCategoryList.events:type_name -> proto.Event
+	15, // 10: proto.EventList.events:type_name -> proto.Event
+	20, // 11: proto.ChatList.chats:type_name -> proto.Chat
+	0,  // 12: proto.EventService.AddChat:input_type -> proto.AddChatRequest
+	1,  // 13: proto.EventService.GetCatalog:input_type -> proto.UserChatIDRequest
+	2,  // 14: proto.EventService.GetFilteredCatalog:input_type -> proto.FilteredCatalogRequest
+	1,  // 15: proto.EventService.GetModeCatalog:input_type -> proto.UserChatIDRequest
+	3,  // 16: proto.EventService.GetEventsByCategory:input_type -> proto.CategoryRequest
+	4,  // 17: proto.EventService.GetFilteredEventsByCategory:input_type -> proto.FilteredCategoryRequest
+	5,  // 18: proto.EventService.GetChatEvents:input_type -> proto.ChatRequest
+	6,  // 19: proto.EventService.GetFilteredChatEvents:input_type -> proto.FilteredChatRequest
+	1,  // 20: proto.EventService.GetCategories:input_type -> proto.UserChatIDRequest
+	1,  // 21: proto.EventService.GetChats:input_type -> proto.UserChatIDRequest
+	7,  // 22: proto.EventService.AddChat:output_type -> proto.Empty
+	8,  // 23: proto.EventService.GetCatalog:output_type -> proto.CatalogList
+	9,  // 24: proto.EventService.GetFilteredCatalog:output_type -> proto.FilteredCatalogList
+	10, // 25: proto.EventService.GetModeCatalog:output_type -> proto.ModeCatalogList
+	16, // 26: proto.EventService.GetEventsByCategory:output_type -> proto.EventCategoryList
+	16, // 27: proto.EventService.GetFilteredEventsByCategory:output_type -> proto.EventCategoryList
+	17, // 28: proto.EventService.GetChatEvents:output_type -> proto.EventList
+	17, // 29: proto.EventService.GetFilteredChatEvents:output_type -> proto.EventList
+	18, // 30: proto.EventService.GetCategories:output_type -> proto.CategoriesResponse
+	19, // 31: proto.EventService.GetChats:output_type -> proto.ChatList
+	22, // [22:32] is the sub-list for method output_type
+	12, // [12:22] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_event_proto_init() }
@@ -1125,7 +1259,7 @@ func file_event_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_event_proto_rawDesc), len(file_event_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   19,
+			NumMessages:   21,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

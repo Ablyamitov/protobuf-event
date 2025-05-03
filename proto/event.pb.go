@@ -476,7 +476,7 @@ func (x *CatalogList) GetCatalogs() []*Catalog {
 
 type FilteredCatalogList struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Catalogs      []*Catalog             `protobuf:"bytes,1,rep,name=catalogs,proto3" json:"catalogs,omitempty"`
+	FilterCatalog []*FilteredCatalog     `protobuf:"bytes,1,rep,name=filterCatalog,proto3" json:"filterCatalog,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -511,16 +511,16 @@ func (*FilteredCatalogList) Descriptor() ([]byte, []int) {
 	return file_event_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *FilteredCatalogList) GetCatalogs() []*Catalog {
+func (x *FilteredCatalogList) GetFilterCatalog() []*FilteredCatalog {
 	if x != nil {
-		return x.Catalogs
+		return x.FilterCatalog
 	}
 	return nil
 }
 
 type ModeCatalogList struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Catalogs      []*Catalog             `protobuf:"bytes,1,rep,name=catalogs,proto3" json:"catalogs,omitempty"`
+	ModeCatalog   []*ModeCatalog         `protobuf:"bytes,1,rep,name=modeCatalog,proto3" json:"modeCatalog,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -555,9 +555,9 @@ func (*ModeCatalogList) Descriptor() ([]byte, []int) {
 	return file_event_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *ModeCatalogList) GetCatalogs() []*Catalog {
+func (x *ModeCatalogList) GetModeCatalog() []*ModeCatalog {
 	if x != nil {
-		return x.Catalogs
+		return x.ModeCatalog
 	}
 	return nil
 }
@@ -1121,11 +1121,11 @@ const file_event_proto_rawDesc = "" +
 	"timeFilter\"\a\n" +
 	"\x05Empty\"9\n" +
 	"\vCatalogList\x12*\n" +
-	"\bcatalogs\x18\x01 \x03(\v2\x0e.proto.CatalogR\bcatalogs\"A\n" +
-	"\x13FilteredCatalogList\x12*\n" +
-	"\bcatalogs\x18\x01 \x03(\v2\x0e.proto.CatalogR\bcatalogs\"=\n" +
-	"\x0fModeCatalogList\x12*\n" +
-	"\bcatalogs\x18\x01 \x03(\v2\x0e.proto.CatalogR\bcatalogs\"Q\n" +
+	"\bcatalogs\x18\x01 \x03(\v2\x0e.proto.CatalogR\bcatalogs\"S\n" +
+	"\x13FilteredCatalogList\x12<\n" +
+	"\rfilterCatalog\x18\x01 \x03(\v2\x16.proto.FilteredCatalogR\rfilterCatalog\"G\n" +
+	"\x0fModeCatalogList\x124\n" +
+	"\vmodeCatalog\x18\x01 \x03(\v2\x12.proto.ModeCatalogR\vmodeCatalog\"Q\n" +
 	"\aCatalog\x12\x1a\n" +
 	"\bcategory\x18\x01 \x01(\tR\bcategory\x12*\n" +
 	"\bchannels\x18\x02 \x03(\v2\x0e.proto.ChannelR\bchannels\"\x7f\n" +
@@ -1210,8 +1210,8 @@ var file_event_proto_goTypes = []any{
 }
 var file_event_proto_depIdxs = []int32{
 	11, // 0: proto.CatalogList.catalogs:type_name -> proto.Catalog
-	11, // 1: proto.FilteredCatalogList.catalogs:type_name -> proto.Catalog
-	11, // 2: proto.ModeCatalogList.catalogs:type_name -> proto.Catalog
+	12, // 1: proto.FilteredCatalogList.filterCatalog:type_name -> proto.FilteredCatalog
+	13, // 2: proto.ModeCatalogList.modeCatalog:type_name -> proto.ModeCatalog
 	14, // 3: proto.Catalog.channels:type_name -> proto.Channel
 	14, // 4: proto.FilteredCatalog.channels:type_name -> proto.Channel
 	15, // 5: proto.FilteredCatalog.events:type_name -> proto.Event

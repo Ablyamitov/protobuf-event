@@ -63,16 +63,28 @@ message CatalogList {
 }
 
 message FilteredCatalogList {
-  repeated Catalog catalogs = 1;
+  repeated FilteredCatalog filterCatalog = 1;
 }
 
 message ModeCatalogList {
-  repeated Catalog catalogs = 1;
+  repeated ModeCatalog modeCatalog = 1;
 }
 
 message Catalog {
   string category = 1;
   repeated Channel channels = 2;
+}
+
+message FilteredCatalog {
+	string category = 1;
+	repeated Channel channels = 2;
+	repeated Event events = 3;
+}
+
+message ModeCatalog {
+	string category = 1;
+	repeated Channel channels = 2;
+	repeated Event events = 3;
 }
 
 message Channel {
